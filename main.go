@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-redis/redis/v8"
+	"github.com/redis/go-redis/v9"
 )
 
 type Data struct {
@@ -19,7 +19,7 @@ type Data struct {
 func main() {
 	ctx := context.Background()
 	rdb := redis.NewClusterClient(&redis.ClusterOptions{
-		Addrs: []string{"localhost:7002", "localhost:7003", "localhost:7004"},
+		Addrs: []string{"localhost:6376", "localhost:6375"},
 	})
 
 	_, err := rdb.Ping(ctx).Result()
